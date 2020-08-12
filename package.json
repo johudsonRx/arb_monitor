@@ -1,0 +1,27 @@
+{
+  "name": "10-connect-to-blockchain-with-web3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run-arbitrage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@studydefi/money-legos": "^2.3.5",
+    "@truffle/hdwallet-provider": "^1.0.40",
+    "@uniswap/sdk": "^2.0.5",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "dsa-sdk": "^1.4.18",
+    "truffle": "^5.1.36",
+    "twilio": "^3.48.2",
+    "web3": "^1.2.11",
+    "ws": "^7.3.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
