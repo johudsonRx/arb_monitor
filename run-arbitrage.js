@@ -13,6 +13,9 @@ const onesplitAddress = "0xC586BeF4a0992C495Cf22e1aeEE4E446CECDee0E"; // 1plit c
 const BigNumber = require('bignumber.js');
 const twilio = require('twilio')
 
+console.log("TWILLIO ACCOUNT SID", process.env.TWILIO_ACCOUNT_SID)
+console.log("TWILLIO AUTH TOEKN", process.env.TWILIO_AUTH_TOKEN)
+
 var client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
