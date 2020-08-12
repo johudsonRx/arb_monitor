@@ -53,7 +53,7 @@ const onesplitContract = new web3.eth.Contract(oneSplitABI, onesplitAddress);
 
 
 
-const { address: admin } = web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY);
+// const { address: admin } = web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY);
 
 const kyber = new web3.eth.Contract(
   abis.kyber.kyberNetworkProxy,
