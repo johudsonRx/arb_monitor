@@ -13,8 +13,6 @@ const onesplitAddress = "0xC586BeF4a0992C495Cf22e1aeEE4E446CECDee0E"; // 1plit c
 const BigNumber = require('bignumber.js');
 const twilio = require('twilio')
 
-console.log("TWILLIO ACCOUNT SID", process.env.TWILIO_ACCOUNT_SID)
-console.log("TWILLIO AUTH TOEKN", process.env.TWILIO_AUTH_TOKEN)
 
 var client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
@@ -36,11 +34,12 @@ const amountToExchange = 1
 const onesplitContract = new web3.eth.Contract(oneSplitABI, onesplitAddress);
 
 
- client.messages.create({
-        to: '7327624626',
-        from: '3526429783',
-        body: 'ARBITRAGE APP has been successfully deployed and'
-});
+//  client.messages.create({
+//         to: '7327624626',
+//         from: '3526429783',
+//         body: 'ARBITRAGE APP has been successfully deployed and'
+// });
+console.log("APP IS SUCCESSFULLY DEPLPOYED!")
 
 // const dsa = new DSA({
 //   web3: web3,
@@ -51,17 +50,13 @@ const onesplitContract = new web3.eth.Contract(oneSplitABI, onesplitAddress);
 // let spells = dsa.Spell();
 
 
-
-
-// const { address: admin } = web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY);
-
 const kyber = new web3.eth.Contract(
   abis.kyber.kyberNetworkProxy,
   addresses.kyber.kyberNetworkProxy
 );
 
 const AMOUNT_ETH = 100;
-const RECENT_ETH_PRICE = 320;
+const RECENT_ETH_PRICE = 384;
 const AMOUNT_ETH_WEI = web3.utils.toWei(AMOUNT_ETH.toString());
 const AMOUNT_DAI_WEI = web3.utils.toWei((AMOUNT_ETH * RECENT_ETH_PRICE).toString());
 const DIRECTION = {
@@ -213,7 +208,7 @@ const init = async () => {
           
 //     }
 // });
-      
+    try{
       const [dai, weth] = await Promise.all(
         [addresses.tokens.dai, addresses.tokens.weth].map(tokenAddress => (
           Token.fetchData(
@@ -304,6 +299,9 @@ const init = async () => {
         console.log(kyberRates);
 
        }
+    } catch(err) {
+      console("ERROR RETURNED BY THE TRY", err)
+    }
 
       // if(kyberRates.buy < uniswapRates.sell) {
       //   const tx = flashloan.methods.initiateFlashloan(
