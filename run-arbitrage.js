@@ -36,7 +36,7 @@ const onesplitContract = new web3.eth.Contract(oneSplitABI, onesplitAddress);
  client.messages.create({
         to: '7327624626',
         from: '3526429783',
-        body: 'ARBITRAGE APP has been successfully deployed and run'
+        body: 'ARBITRAGE APP has been successfully deployed and'
 });
 
 // const dsa = new DSA({
