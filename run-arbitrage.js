@@ -11,15 +11,21 @@ const WebSocket = require('ws');
 const oneSplitABI = require('./abis/onesplit.json');
 const onesplitAddress = "0xC586BeF4a0992C495Cf22e1aeEE4E446CECDee0E"; // 1plit contract address on Main net
 const BigNumber = require('bignumber.js');
-const twilio = require('twilio')
+const twilio = require('twilio');
+const express = require('express');
 
-
+const app = express()
 var client = new twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
 const web3 = new Web3(
   new Web3.providers.WebsocketProvider(process.env.INFURA_URL)
 );
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, function () {
+  console.log('APP listening on port 3000!');
+});
 
 const fromToken = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'; // ETHEREUM
 const fromTokenDecimals = 18;
